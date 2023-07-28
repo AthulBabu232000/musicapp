@@ -1,0 +1,30 @@
+<app-header></app-header>
+    <div class="container-fluid ">
+     <div class="row mx-auto w-100">
+        <div class="col-md-10 mx-auto d-flex justify-content-center">
+            <mat-form-field appearance="outline" class="mx-auto w-75 mt-4">
+                <mat-label style="color:purple;">Search your song...</mat-label>
+                <input class="" matInput placeholder="Placeholder" [(ngModel)]="songArtist"  (ngModelChange)="matInputArtist()">
+           <button (click)="searchTrack()" class=""matSuffix mat-icon-button><i class="fas fa-search"></i></button>
+          
+            </mat-form-field>
+        </div>
+     </div>
+    
+    <div class="row w-100 mx-auto"  *ngIf="songArtist">
+
+    <div class="col-md-10 mx-auto">
+     <div class="row mx-auto">
+            <mat-card *ngFor="let song of songs" class="col-md-3">
+                <app-song [props]="song"></app-song>
+            </mat-card>
+     </div>
+      
+    </div>
+  <div [hidden]="instruction">Please enter an artist name to continue</div>
+</div>
+
+      </div>
+    
+      
+
